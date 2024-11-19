@@ -1,0 +1,34 @@
+CREATE DATABASE hardware;
+USE hardware;
+
+create table Laboratorio (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) not null
+);
+
+create table Maquina (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome varchar(50),
+laboratorioNome varchar(50),
+processador varchar(50),
+ram varchar(50),
+armazenamento varchar(50),
+statuss ENUM('Funcionando', 'Em manutenção', 'Fora de uso')
+);
+
+create table Manutencao (
+id INT PRIMARY KEY AUTO_INCREMENT,
+maquinaNome varchar(50),
+tecnicoNome varchar(50),
+tipo ENUM('preventiva', 'corretiva')
+);
+
+create table Usuario (
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome varchar(50),
+senha varchar(50),
+perfil ENUM('Técnico', 'Admin')
+);
+
+insert into Usuario(nome, senha, perfil)
+values ('adm', 123, 'Admin');
